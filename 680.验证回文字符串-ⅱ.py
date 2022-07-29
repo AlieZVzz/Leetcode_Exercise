@@ -19,25 +19,6 @@ class Solution:
         # flag = 2
         # flag_1 = True
         # while(p1 <= p2):
-        #     if s[p1] != s[p2]:
-        #         if s[p1+1] != s[p2] and s[p1] != s[p2-1]:
-        #             flag_1 = False
-        #             break
-        #         elif s[p1+1] == s[p2] and s[p1] != s[p2-1]:
-        #             flag -= 1
-        #             p1 += 1
-        #         elif s[p1] == s[p2-1] and s[p1+1] != s[p2]:
-        #             flag -= 1
-        #             p2 -= 1
-        #         elif s[p1] == s[p2-1] and s[p1+1] == s[p2]:
-        #             flag -= 1
-        #     else:
-        #         p1 += 1
-        #         p2 -= 1
-        # if flag_1 and flag >= 1:
-        #     return True
-        # else:
-        #     return False
         """
         :type s: str
         :rtype: bool
