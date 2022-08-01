@@ -17,6 +17,6 @@ class Solution:
                 low = pivot + 1
             else:
                 high -= 1
-        return nums[low]
+        return nums[low] 
 # @lc code=end
 
