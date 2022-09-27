@@ -5,42 +5,61 @@
 #
 
 # @lc code=start
-from collections import defaultdict,deque
 
-
+import string
 class Solution:
-    def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
-        wordList.append(beginWord)
-        ### 构建具有邻接关系的桶
-        buckets = defaultdict(list)
-        for word in wordList:
-            for i in range(len(beginWord)):
-                match = word[:i] + '_' + word[i+1:]
-                buckets[match].append(word)
-        ##### BFS遍历
-        preWords = defaultdict(list)  # 前溯词列表
-        toSeen = deque([(beginWord, 1)])  # 待遍历词及深度
-        beFound = {beginWord:1}  # 已探测词列表
-        while toSeen:
-            curWord, level = toSeen.popleft()
-            for i in range(len(beginWord)):
-                match = curWord[:i] + '_' + curWord[i+1:]
-                for word in buckets[match]:
-                    if word not in beFound:
-                        beFound[word] = level+1
-                        toSeen.append((word, level+1))
-                    if beFound[word] == level+1:  # 当前深度等于该词首次遍历深度，则仍应加入前溯词列表
-                        preWords[word].append(curWord)
-            if endWord in beFound and level+1 > beFound[endWord]:  # 已搜索到目标词，且完成当前层遍历
-                break
-        #### 列表推导式输出结果
-        if endWord in beFound:
-            res = [[endWord]]
-            while res[0][0] != beginWord:
-                res = [[word] + r for r in res for word in preWords[r[0]]] 
-            return res
-        else:
+    def findLadders(self, beginWord, endWord, wordList):
+        """
+        :type beginWord: str
+        :type endWord: str
+        :type wordList: List[str]
+        :rtype: List[List[str]]
+        """
+        word_bag = set(wordList)
+        if endWord not in word_bag:
             return []
+        word_bag.add(beginWord)
+        distance = self.bfs(endWord, word_bag,beginWord)
+        results = []
+        self.dfs(beginWord, endWord, word_bag, distance, [beginWord], results)
+        return results
+    
+    def bfs(self, begin_word, word_bag,endWord):
+        queue = [begin_word]
+        distance = {}
+        distance[begin_word] = 0
+        while queue:
+            size = len(queue)
+            for _ in range(size):
+                curr_word = queue.pop(0)
+                for next_word in self.get_next_words(curr_word, word_bag):
+                    if next_word not in distance:
+                        distance[next_word] = distance[curr_word] + 1
+                        queue.append(next_word)
+            if endWord in distance:
+                break 
+        return distance
+    
+    def dfs(self, curr_word, target, word_bag, distance, path, results):
+        if curr_word == target:
+            results.append(list(path))
+            return
+        for next_word in self.get_next_words(curr_word, word_bag):
+            if next_word not in distance  or  distance[next_word] != distance[curr_word] - 1:
+                continue
+            path.append(next_word)
+            self.dfs(next_word, target, word_bag, distance, path, results)
+            path.pop() #回溯
+    
+    def get_next_words(self, curr_word, word_bag):
+        next_words = []
+        for i in range(len(curr_word)):
+            for c in list(string.ascii_lowercase):
+                next_word = curr_word[:i] + c + curr_word[i + 1:]
+                if next_word != curr_word and next_word in word_bag:
+                    next_words.append(next_word)
+        return next_words
+
 
 
 

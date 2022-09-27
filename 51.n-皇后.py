@@ -6,12 +6,9 @@
 
 # @lc code=start
 
-
+from typing import List
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
-        board = [['.'] * n for _ in range(n)]
-        res = []
-
         def backtrack(row):
             n = len(board)
             if row == n:
@@ -25,8 +22,10 @@ class Solution:
                 board[row][col] = 'Q'
                 backtrack(row+1)
                 board[row][col] = '.'
-        backtrack(0)
 
+        board = [['.'] * n for _ in range(n)]
+        res = []
+        backtrack(0)
         return res
 
     def IsValid(self, board, row, col):

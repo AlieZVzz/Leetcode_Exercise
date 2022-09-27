@@ -6,7 +6,8 @@
 
 # @lc code=start
 import collections
-import queue
+from typing import List
+
 
 class Solution:
     def shortestBridge(self, grid: List[List[int]]) -> int:
@@ -24,6 +25,8 @@ class Solution:
             DFS(i-1,j)
             DFS(i,j+1)
             DFS(i,j-1)
+
+            
         def BFS(root_list):
             queue = collections.deque()
             visited = set()

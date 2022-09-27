@@ -6,6 +6,7 @@
 
 # @lc code=start
 # Definition for a binary tree node.
+from typing import List
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -15,10 +16,6 @@ class TreeNode:
 
 class Solution:
     def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
-        if not root:
-            return 
-        res = []
-        path = []
         def backtrack(node):
             path.append(str(node.val))
             if not (node.left or node.right):
@@ -29,6 +26,11 @@ class Solution:
                 backtrack(node.right)
     
             path.pop()
+            
+        if not root:
+            return 
+        res = []
+        path = []
         backtrack(root)
         return res
             

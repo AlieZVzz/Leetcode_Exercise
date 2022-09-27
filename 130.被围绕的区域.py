@@ -5,6 +5,7 @@
 #
 
 # @lc code=start
+from typing import List
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
         """

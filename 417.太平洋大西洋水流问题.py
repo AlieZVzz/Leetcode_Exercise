@@ -5,7 +5,7 @@
 #
 
 # @lc code=start
-from typing import Tuple
+from typing import Tuple, List
 
 
 class Solution:
@@ -31,3 +31,4 @@ class Solution:
         return list(map(list, search(pacific) & search(atlantic)))
 
 # @lc code=end
+
