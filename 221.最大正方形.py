@@ -5,6 +5,9 @@
 #
 
 # @lc code=start
+from typing import List 
+
+
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
         m = len(matrix)
@@ -13,10 +16,9 @@ class Solution:
         max_side = 0
         for i in range(m):
             for j in range(n):
-                if matrix[i][j]=='1':
-                    dp[i][j] =  min(dp[i-1][j-1], dp[i-1][j],dp[i][j-1])+1
+                if matrix[i][j] == '1':
+                    dp[i][j] = min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])+1
                 max_side = max(max_side, dp[i][j])
         return max_side**2
 
 # @lc code=end
-

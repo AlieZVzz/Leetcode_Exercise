@@ -5,10 +5,13 @@
 #
 
 # @lc code=start
+from typing import List
+
+
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
         sums = sum(nums)
-        if sums%2:
+        if sums % 2:
             return False
         target = int(sums/2)
         dp = [False for i in range(target+1)]
@@ -19,4 +22,3 @@ class Solution:
         return dp[target]
 
 # @lc code=end
-

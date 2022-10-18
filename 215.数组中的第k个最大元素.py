@@ -16,5 +16,4 @@ class Solution:
                 heapq.heappop(heap)
         return heap[0]
 
-
 # @lc code=end

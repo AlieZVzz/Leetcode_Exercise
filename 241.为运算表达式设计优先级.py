@@ -6,7 +6,7 @@
 
 # @lc code=start
 
-
+from typing import List
 class Solution:
     def diffWaysToCompute(self, expression: str) -> List[int]:
         if expression.isdigit():
@@ -25,6 +25,10 @@ class Solution:
                         elif char =='*':
                             res.append(l*r)
         return res
+
+    # 分解：按运算符分成左右两部分，分别求解
+    # 解决：实现一个递归函数，输入算式，返回算式解
+    # 合并：根据运算符合并左右两部分的解，得出最终解
 
 # @lc code=end
 

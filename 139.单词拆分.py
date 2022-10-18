@@ -5,6 +5,9 @@
 #
 
 # @lc code=start
+from typing import List
+
+
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         n = len(s)
@@ -16,4 +19,3 @@ class Solution:
                     dp[j] = True
         return dp[-1]
 # @lc code=end
-
