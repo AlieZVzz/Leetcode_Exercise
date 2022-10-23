@@ -7,8 +7,7 @@
 # @lc code=start
 
 
-from numpy import float_power
-
+from typing import List
 
 class Solution:
     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:

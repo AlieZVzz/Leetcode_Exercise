@@ -5,6 +5,7 @@
 #
 
 # @lc code=start
+from typing import List
 class Solution:
     def partitionLabels(self, S: str) -> List[int]:
         dic = {s: index for index, s in enumerate(S)}   #存储某个字母对应地最后一个序号
