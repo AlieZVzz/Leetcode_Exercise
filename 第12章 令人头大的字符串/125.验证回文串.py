@@ -11,7 +11,6 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         res="".join(filter(str.isalnum, s)).lower()
-        print(res)
         return res==res[::-1]
 
 # @lc code=end
