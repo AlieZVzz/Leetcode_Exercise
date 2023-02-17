@@ -21,12 +21,12 @@ class Solution:
         m, n = len(board), len(board[0])
         w = len(word)
         # prune
-        bc = Counter(board[r][c] for r in range(m) for c in range(n))
+        # bc = Counter(board[r][c] for r in range(m) for c in range(n))
         visited = [[False for _ in range(n)] for _ in range(m)]
         wc = Counter(word)
-        for key in wc.keys():
-            if wc[key] > bc[key]:
-                return False
+        # for key in wc.keys():
+        #     if wc[key] > bc[key]:
+        #         return False
     
         for row in range(m):
             for col in range(n):

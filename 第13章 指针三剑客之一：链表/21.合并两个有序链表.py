@@ -22,7 +22,6 @@ class Solution:
             if list1.val>list2.val:
                 cur.next = list2
                 list2 = list2.next
-
             else:
                 cur.next = list1
                 list1 = list1.next
