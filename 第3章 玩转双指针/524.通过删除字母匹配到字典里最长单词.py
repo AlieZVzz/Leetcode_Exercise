@@ -5,6 +5,7 @@
 #
 
 # @lc code=start
+from typing import List
 class Solution:
     def findLongestWord(self, s: str, dictionary: List[str]) -> str:
         dictionary.sort(key=lambda x: (-len(x), x))

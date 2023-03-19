@@ -19,7 +19,7 @@ class Solution:
 			# 递归的终止条件是两个节点都为空
 			# 或者两个节点中有一个为空
 			# 或者两个节点的值不相等
-            if not (left or right): #都为空，相等
+            if not left and not right: #都为空，相等
                 return True
             if not (left and right):
                 return False
@@ -31,6 +31,20 @@ class Solution:
             return True
         return dfs(root.left,root.right)
 
-            
+
+
+    # def isSymmetric(self, root: 'TreeNode') -> 'bool':
+
+    #     def symmetric(p1, p2):
+    #         if p1 and p2:
+    #             return (p1.val == p2.val and symmetric(p1.left, p2.right) and 
+    #                     symmetric(p1.right, p2.left))
+    #         else:
+    #             return p1 is p2
+
+    #     if not root:
+    #         return True
+    #     return symmetric(root.left, root.right)
+                
 # @lc code=end
 

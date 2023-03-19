@@ -5,13 +5,14 @@
 #
 
 # @lc code=start
+from typing import List
+
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         result = [-1, -1] 
         result[0] = self.findStartingIndex(nums, target)  
         result[1] = self.findEndingIndex(nums, target)  
         return result 
-        
 
     def findStartingIndex(self, nums, target):
         index = -1 

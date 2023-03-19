@@ -7,9 +7,7 @@
 # @lc code=start
 class Solution:
     def mySqrt(self, x: int) -> int:
-        # for i in range(x+1):
-        #     if (i+1)*(i+1)>x and i*i<=x:
-        #         return i
+    
         l, r, ans = 0, x, -1
         while l <= r:
             mid = (l + r) // 2
