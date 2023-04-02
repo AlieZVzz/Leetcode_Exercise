@@ -23,7 +23,7 @@ class Solution:
         # prune
         # bc = Counter(board[r][c] for r in range(m) for c in range(n))
         visited = [[False for _ in range(n)] for _ in range(m)]
-        wc = Counter(word)
+        # wc = Counter(word)
         # for key in wc.keys():
         #     if wc[key] > bc[key]:
         #         return False

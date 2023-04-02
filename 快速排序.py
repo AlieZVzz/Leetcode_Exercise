@@ -1,3 +1,4 @@
+
 def quickSort(array):
     larger = list()
     smaller = list()

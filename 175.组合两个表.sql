@@ -1,4 +1,4 @@
---
+19--
 -- @lc app=leetcode.cn id=175 lang=mysql
 --
 -- [175] 组合两个表

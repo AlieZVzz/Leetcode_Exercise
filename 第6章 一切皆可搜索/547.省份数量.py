@@ -5,6 +5,7 @@
 #
 
 # @lc code=start
+from typing import List
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
         visited = set()
@@ -25,7 +26,7 @@ class Solution:
             if i not in visited:
                 num_prov += 1
             # 将i所在省份的城市纳入visited
-            dfs(i)
+                dfs(i)
         return num_prov
 
 # @lc code=end

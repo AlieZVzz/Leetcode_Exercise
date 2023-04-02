@@ -5,7 +5,7 @@
 #
 
 # @lc code=start
-from gettext import find
+
 
 
 class Solution:
